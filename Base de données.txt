@@ -1,0 +1,40 @@
+Base de donnée : cinema_reservation
+
+
+
+-- Table films
+CREATE TABLE films (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titre VARCHAR(255) NOT NULL,
+    description TEXT,
+    duree INT, -- Durée en minutes
+    image_url VARCHAR(255)
+);
+
+-- Table sessions
+CREATE TABLE sessions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    film_id INT NOT NULL,
+    date_heure DATETIME NOT NULL,
+    salle INT NOT NULL,
+    places_disponibles INT NOT NULL,
+    FOREIGN KEY (film_id) REFERENCES films(id) ON DELETE CASCADE
+);
+
+-- Table utilisateurs (optionnel si on veut de la gestion de comptes)
+CREATE TABLE utilisateurs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    mot_de_passe VARCHAR(255)
+);
+
+-- Table reservations
+CREATE TABLE reservations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    session_id INT NOT NULL,
+    utilisateur_id INT NOT NULL,
+    places_reservees INT NOT NULL,
+    FOREIGN KEY (session_id) REFERENCES sessions(id) ON DELETE CASCADE,
+    FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id) ON DELETE CASCADE
+);
