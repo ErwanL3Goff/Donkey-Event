@@ -1,46 +1,32 @@
 <?php
 include 'includes/header.php';
 include 'functionPHP.php';
-?>
 
-<?php
-$films = [
-    [
-        "titre" => "Ip man",
-        "description" => "Un film d'art martial passionnant.",
-        "duree" => 120,
-        "image_url" => "ip_man.jpg",
-        "lien" => "film.php?id=6"
-    ],
-    [
-        "titre" => "Platoon",
-        "description" => "Le film sur la guerre d'Indochinne qui à marqué les esprits.",
-        "duree" => 95,
-        "image_url" => "platoon.jpg",
-        "lien" => "film.php?id=7"
-    ],
-    [
-        "titre" => "Jujutsu Kaizen 0",
-        "description" => "Là où tout a commencé dans le lore de Jujutsu Kaisen.",
-        "duree" => 110,
-        "image_url" => "Jujutsu_kaisen_zero.jpg",
-        "lien" => "film.php?id=8"
-    ],
-    [
-        "titre" => "Spider Man",
-        "description" => "En tout cas mon Spider Man préféré.",
-        "duree" => 100,
-        "image_url" => "spiderman.jpg",
-        "lien" => "film.php?id=9"
-    ]
-];
+//A ajouter dans la base de donnée.
+// [
+//     "titre" => "Jujutsu Kaizen 0",
+//     "description" => "Là où tout a commencé dans le lore de Jujutsu Kaisen.",
+//     "duree" => 110,
+//     "image_url" => "Jujutsu_kaisen_zero.jpg",
+//     "lien" => "film.php?id=8"
+// ],
+// [
+//     "titre" => "Spider Man",
+//     "description" => "En tout cas mon Spider Man préféré.",
+//     "duree" => 100,
+//     "image_url" => "spiderman.jpg",
+//     "lien" => "film.php?id=9"
+// ]
+
+
+$films = listMovies();
 ?>
 
 
 
 <head>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             let currentIndex = 0;
             const slides = document.querySelectorAll(".slide");
             const totalSlides = slides.length;
@@ -76,8 +62,8 @@ $films = [
     <?php
     foreach ($films as $film) {
         echo "<div class='film-item'>";
-        echo "<a href='{$film['lien']}'>";
-        echo "<img src='images/{$film['image_url']}' alt='{$film['titre']}'>";
+        echo "<a href='{$film['idfilm']}'>";
+        echo "<img src='images/{$film['picture']}' alt='{$film['titre']}'>";
         echo "<h3>{$film['titre']}</h3>";
         echo "</a>";
         echo "<p>{$film['description']}</p>";
@@ -124,7 +110,7 @@ $films_mosaique = [
         "image_url" => "equilibrium.jpg",
         "lien" => "film.php?id=5"
     ]
-    
+
 ];
 ?>
 

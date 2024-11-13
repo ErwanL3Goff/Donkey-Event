@@ -3,10 +3,10 @@
 //Connexion à la base de donné
 function connectDB()
 {
-    $host = 'sql203.infinityfree.com';
-    $dbname = 'if0_37704934_hellodonkeycine';
-    $user = 'if0_37704934';
-    $password = 'dijQYuWX5levv8P';
+    $host = 'localhost';
+    $dbname = 'allodonkeycine';
+    $user = 'root';
+    $password = '';
     return $dbh = new PDO("mysql:host=" . $host . ";dbname=" . $dbname, $user, $password);
 }
 
@@ -15,7 +15,7 @@ function connectDB()
 function listMovies()
 {
     $dbh = connectDB();
-    $sth = $dbh->prepare('SELECT * FROM films');
+    $sth = $dbh->prepare('SELECT * FROM film');
     $sth->execute();
     $listMovies = $sth->fetchAll();
     return $listMovies;
@@ -25,7 +25,7 @@ function listMovies()
 function currentMovies()
 {
     $dbh = connectDB();
-    $sth = $dbh->prepare('SELECT * FROM films where diffusion =1');
+    $sth = $dbh->prepare('SELECT * FROM film where diffusion =1');
     $sth->execute();
     $currentMovies = $sth->fetchAll();
     return $currentMovies;
