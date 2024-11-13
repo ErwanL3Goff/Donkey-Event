@@ -1,6 +1,6 @@
 <?php
 include 'includes/header.php';
-include 'includes/db.php';
+include 'functionPHP.php';
 ?>
 
 <?php
@@ -10,28 +10,28 @@ $films = [
         "description" => "Un film d'art martial passionnant.",
         "duree" => 120,
         "image_url" => "ip_man.jpg",
-        "lien" => "film.php?id=1"
+        "lien" => "film.php?id=6"
     ],
     [
         "titre" => "Platoon",
         "description" => "Le film sur la guerre d'Indochinne qui à marqué les esprits.",
         "duree" => 95,
         "image_url" => "platoon.jpg",
-        "lien" => "film.php?id=2"
+        "lien" => "film.php?id=7"
     ],
     [
         "titre" => "Jujutsu Kaizen 0",
         "description" => "Là où tout a commencé dans le lore de Jujutsu Kaisen.",
         "duree" => 110,
         "image_url" => "Jujutsu_kaisen_zero.jpg",
-        "lien" => "film.php?id=3"
+        "lien" => "film.php?id=8"
     ],
     [
         "titre" => "Spider Man",
         "description" => "En tout cas mon Spider Man préféré.",
         "duree" => 100,
         "image_url" => "spiderman.jpg",
-        "lien" => "film.php?id=4"
+        "lien" => "film.php?id=9"
     ]
 ];
 ?>
@@ -68,7 +68,7 @@ $films = [
 
 
 
-<h1>Bienvenue sur Cinéma Réservation</h1>
+<h1>Bienvenue sur AlloDokeyCine !</h1>
 
 <h1>Nos films</h1>
 
@@ -124,6 +124,7 @@ $films_mosaique = [
         "image_url" => "equilibrium.jpg",
         "lien" => "film.php?id=5"
     ]
+    
 ];
 ?>
 

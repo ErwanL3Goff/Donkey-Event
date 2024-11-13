@@ -139,3 +139,15 @@ footer {
     line-height: 1.6;
     margin: 10px 0;
 }
+
+.logo {
+    height: 80px;
+    width: auto;
+    transition: transform 0.3s;
+    position: absolute;
+    left: 94%;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}

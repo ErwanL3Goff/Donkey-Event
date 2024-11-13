@@ -1,8 +1,9 @@
 <?php
 include 'includes/header.php';
+include 'functionPHP.php';
 
 // Tableau des films (similaire à celui de index.php)
-$films_mosaique = [
+$touslesfilms = [
     [
         "titre" => "Princesse Mononoke",
         "description" => "Princesse Mononoké est un film d'animation historique et de fantasy japonais de Hayao Miyazaki, sorti le 12 juillet 1997 et produit par le studio Ghibli.",
@@ -37,6 +38,34 @@ $films_mosaique = [
         "duree" => 132,
         "image_url" => "equilibrium.jpg",
         "lien" => "film.php?id=5"
+    ],
+    [
+        "titre" => "Ip man",
+        "description" => "Un film d'art martial passionnant.",
+        "duree" => 120,
+        "image_url" => "ip_man.jpg",
+        "lien" => "film.php?id=6"
+    ],
+    [
+        "titre" => "Platoon",
+        "description" => "Le film sur la guerre d'Indochinne qui à marqué les esprits.",
+        "duree" => 95,
+        "image_url" => "platoon.jpg",
+        "lien" => "film.php?id=7"
+    ],
+    [
+        "titre" => "Jujutsu Kaizen 0",
+        "description" => "Là où tout a commencé dans le lore de Jujutsu Kaisen.",
+        "duree" => 110,
+        "image_url" => "Jujutsu_kaisen_zero.jpg",
+        "lien" => "film.php?id=8"
+    ],
+    [
+        "titre" => "Spider Man",
+        "description" => "En tout cas mon Spider Man préféré.",
+        "duree" => 100,
+        "image_url" => "spiderman.jpg",
+        "lien" => "film.php?id=9"
     ]
 ];
 
@@ -45,8 +74,8 @@ if (isset($_GET['id'])) {
     $id = (int) $_GET['id'] - 1; // -1 pour s'aligner sur l'index du tableau (index commence à 0)
     
     // Vérifier que l'ID est valide
-    if ($id >= 0 && $id < count($films_mosaique)) {
-        $film = $films_mosaique[$id];
+    if ($id >= 0 && $id < count($touslesfilms)) {
+        $film = $touslesfilms[$id];
     } else {
         echo "<p>Film non trouvé.</p>";
         exit;
