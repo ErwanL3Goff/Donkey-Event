@@ -28,6 +28,7 @@ CREATE TABLE `film` (
   `duree` time NOT NULL COMMENT 'In minutes',
   `description` text,
   `picture` varchar(255) DEFAULT NULL COMMENT 'URL to movie picture',
+  `diffusion` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`idfilm`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-12 15:08:49
+-- Dump completed on 2024-11-13 10:35:30
