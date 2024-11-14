@@ -1,31 +1,10 @@
 <?php
 include 'includes/header.php';
 include 'functionPHP.php';
-
-//A ajouter dans la base de donnée.
-// [
-//     "titre" => "Jujutsu Kaizen 0",
-//     "description" => "Là où tout a commencé dans le lore de Jujutsu Kaisen.",
-//     "duree" => 110,
-//     "image_url" => "Jujutsu_kaisen_zero.jpg",
-//     "lien" => "film.php?id=8"
-// ],
-// [
-//     "titre" => "Spider Man",
-//     "description" => "En tout cas mon Spider Man préféré.",
-//     "duree" => 100,
-//     "image_url" => "spiderman.jpg",
-//     "lien" => "film.php?id=9"
-// ]
-
-
-$films = listMovies();
 ?>
 
-
-
 <head>
-    <script>
+    <!-- <script> Script à corriger
         document.addEventListener("DOMContentLoaded", function() {
             let currentIndex = 0;
             const slides = document.querySelectorAll(".slide");
@@ -46,90 +25,53 @@ $films = listMovies();
             showSlide(currentIndex);
             setInterval(nextSlide, 3000);
         });
-    </script>
+    </script> -->
 
 </head>
 
+<h2>Bienvenue sur<h2>
+        <h1>AlloDonkeyCine !</h1>
+
+        <h2>Les films</h2>
+
+        <div class="films-grid">
+            <?php
+            //Récupére la liste des films de la base de donnée
+            $films = listMovies();
+            foreach ($films as $film) {
+                echo "<div class='film-item'>";
+                echo "<a href='film.php?id={$film['idfilm']}'>";
+                echo "<img src='images/{$film['picture']}' alt='{$film['titre']}'>";
+                echo "<h3>{$film['titre']}</h3>";
+                echo "</a>";
+                echo "<p>{$film['description']}</p>";
+                echo "<p><strong>Durée:</strong> {$film['duree']} min</p>";
+                echo "</div>";
+            }
+            ?>
+        </div>
 
 
+        <h2>Films disponibles en salle</h2>
+        <div class="films-grid">
+            <?php
+            //Récupére la liste des films actuellement diffusés
+            $filmsEnSalle = currentMovies();
+            foreach ($filmsEnSalle as $film) {
+                echo "<div class='film-item'>";
+                echo "<a href='film.php?id={$film['idfilm']}'>"; // Lien vers la page du film avec l'id unique
+                echo "<img src='images/{$film['picture']}' alt='{$film['titre']}'>";
+                echo "<h3>{$film['titre']}</h3>";
+                echo "</a>";
+                echo "<p>{$film['description']}</p>";
+                echo "<p><strong>Durée:</strong> {$film['duree']} min</p>";
+                echo "<p>
+        <form action='reservation.php' method='post'>
+         <button 'type ='submit' formaction='reservation.php' name='idFilmReservation' value={$film['idfilm']} formmethod ='post' 
+         >Reserver</button></form></p></div>";
+            }
+            ?>
+        </div>
 
 
-<h1>Bienvenue sur AlloDokeyCine !</h1>
-
-<h1>Nos films</h1>
-
-<div class="films-grid">
-    <?php
-    foreach ($films as $film) {
-        echo "<div class='film-item'>";
-        echo "<a href='{$film['idfilm']}'>";
-        echo "<img src='images/{$film['picture']}' alt='{$film['titre']}'>";
-        echo "<h3>{$film['titre']}</h3>";
-        echo "</a>";
-        echo "<p>{$film['description']}</p>";
-        echo "<p><strong>Durée:</strong> {$film['duree']} min</p>";
-        echo "</div>";
-    }
-    ?>
-</div>
-
-<?php
-$films_mosaique = [
-    [
-        "titre" => "Princesse Mononoke",
-        "description" => "Princesse Mononoké est un film d'animation historique et de fantasy japonais de Hayao Miyazaki, sorti le 12 juillet 1997 et produit par le studio Ghibli.",
-        "duree" => 148,
-        "image_url" => "princesse_mononoke.jpg",
-        "lien" => "film.php?id=1"
-    ],
-    [
-        "titre" => "Shrek",
-        "description" => "Shrek est un film d'animation américain en images de synthèse réalisé par Andrew Adamson et Vicky Jenson et sorti en 2001.",
-        "duree" => 201,
-        "image_url" => "shrek.jpg",
-        "lien" => "film.php?id=2"
-    ],
-    [
-        "titre" => "Troie",
-        "description" => "Troie est un film américain réalisé par Wolfgang Petersen et sorti en 2004. Il s'agit d'une adaptation libre et romancée des poèmes épiques du cycle troyen, singulièrement de l'Iliade d'Homère.",
-        "duree" => 169,
-        "image_url" => "troie.jpg",
-        "lien" => "film.php?id=3"
-    ],
-    [
-        "titre" => "Dragon Ball Z L'Attaque du Dragon",
-        "description" => "Un des seuls OAV Dragon Ball regardé entièrement.",
-        "duree" => 128,
-        "image_url" => "Dragon-Ball-Z-movie-attaque_du_dragon.jpg",
-        "lien" => "film.php?id=4"
-    ],
-    [
-        "titre" => "Equilibrium",
-        "description" => "Equilibrium is a 2002 American science fiction film written and directed by Kurt Wimmer, and starring Christian Bale, Emily Watson, and Taye Diggs.",
-        "duree" => 132,
-        "image_url" => "equilibrium.jpg",
-        "lien" => "film.php?id=5"
-    ]
-
-];
-?>
-
-
-<h2>Films disponibles</h2>
-<div class="films-grid">
-    <?php
-    foreach ($films_mosaique as $index => $film) {
-        echo "<div class='film-item'>";
-        echo "<a href='film.php?id=" . ($index + 1) . "'>"; // Lien vers la page du film avec l'id unique
-        echo "<img src='images/{$film['image_url']}' alt='{$film['titre']}'>";
-        echo "<h3>{$film['titre']}</h3>";
-        echo "</a>";
-        echo "<p>{$film['description']}</p>";
-        echo "<p><strong>Durée:</strong> {$film['duree']} min</p>";
-        echo "</div>";
-    }
-    ?>
-</div>
-
-
-<?php include 'includes/footer.php'; ?>
+        <?php include 'includes/footer.php'; ?>
