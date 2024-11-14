@@ -31,6 +31,16 @@ function currentMovies()
     return $currentMovies;
 }
 
+function selectedMovie($idMovie)
+{
+    $dbh = connectDB();
+    $sth = $dbh->prepare('SELECT * FROM film where idfilm= :id');
+    $sth->bindParam(':id', $idMovie);
+    $sth->execute();
+    $idMovie = $sth->fetch();
+    return $idMovie;
+}
+
 //Permet à un utilisateur de se connecter en donnait un surnom OU un mot de passe, et un mot de passe
 function login($user, $password)
 {

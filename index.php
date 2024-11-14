@@ -45,7 +45,7 @@ include 'functionPHP.php';
                 echo "<h3>{$film['titre']}</h3>";
                 echo "</a>";
                 echo "<p>{$film['description']}</p>";
-                echo "<p><strong>Durée:</strong> {$film['duree']} min</p>";
+                echo "<p><strong>Durée:</strong> {$film['duree']}</p>";
                 echo "</div>";
             }
             ?>
@@ -64,7 +64,7 @@ include 'functionPHP.php';
                 echo "<h3>{$film['titre']}</h3>";
                 echo "</a>";
                 echo "<p>{$film['description']}</p>";
-                echo "<p><strong>Durée:</strong> {$film['duree']} min</p>";
+                echo "<p><strong>Durée:</strong> {$film['duree']}</p>";
                 echo "<p>
         <form action='reservation.php' method='post'>
          <button 'type ='submit' formaction='reservation.php' name='idFilmReservation' value={$film['idfilm']} formmethod ='post' 
