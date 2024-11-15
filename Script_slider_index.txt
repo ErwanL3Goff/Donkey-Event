@@ -1,0 +1,38 @@
+<div id="carouselExample" class="carousel slide mb-5" data-bs-ride="carousel">
+    <!-- Indicateurs -->
+    <div class="carousel-indicators">
+        <?php
+        $films = listMovies(); // Récupère les films depuis la base de données
+        foreach ($films as $index => $film) {
+            $activeClass = $index === 0 ? 'active' : '';
+            echo "<button type='button' data-bs-target='#carouselExample' data-bs-slide-to='{$index}' class='{$activeClass}' aria-current='true' aria-label='Slide {$index}'></button>";
+        }
+        ?>
+    </div>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+        <?php
+        foreach ($films as $index => $film) {
+            $activeClass = $index === 0 ? 'active' : '';
+            echo "<div class='carousel-item {$activeClass}'>";
+            echo "<img src='images/{$film['picture']}' class='d-block w-100' alt='{$film['titre']}'>";
+            echo "<div class='carousel-caption d-none d-md-block'>";
+            echo "<h5>{$film['titre']}</h5>";
+            echo "<p>{$film['description']}</p>";
+            echo "</div>";
+            echo "</div>";
+        }
+        ?>
+    </div>
+
+    <!-- Contrôles -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
