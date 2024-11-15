@@ -30,17 +30,16 @@ CREATE TABLE `film` (
   `picture` varchar(255) DEFAULT NULL COMMENT 'URL to movie picture',
   `diffusion` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`idfilm`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `film`
 --
--- ORDER BY:  `idfilm`
 
 LOCK TABLES `film` WRITE;
 /*!40000 ALTER TABLE `film` DISABLE KEYS */;
-INSERT INTO `film` VALUES (1,'Ip man','02:00:00','Un film d\'art martiaux passionant.','ip_man.jpg',1),(2,'Platoon','01:35:00','Le film sur la guerre d\'Indochinne qui à marqué les esprits..','platoon.jpg',1),(3,'Jujutsu Kaizen 0','01:50:00','Là où tout a commencé dans le lore de Jujutsu Kaisen.','Jujutsu_kaisen_zero.jpg',1);
+INSERT INTO `film` VALUES (1,'Ip man','02:00:00','Un film d\'art martiaux passionant.','ip_man.jpg',0),(2,'Platoon','01:35:00','Le film sur la guerre d\'Indochinne qui à marqué les esprits..','platoon.jpg',0),(3,'Jujutsu Kaizen 0','01:50:00','Là où tout a commencé dans le lore de Jujutsu Kaisen.','Jujutsu_kaisen_zero.jpg',0),(4,'Princesse Mononoke','01:48:00','Princesse Mononoké est un film d\'animation historique et de fantasy japonais de Hayao Miyazaki, sorti le 12 juillet 1997 et produit par le studio Ghibli.','princesse_mononoke.jpg',1),(5,'Shrek','02:01:00','Shrek est un film d\'animation américain en images de synthèse réalisé par Andrew Adamson et Vicky Jenson et sorti en 2001.','shrek.jpg',1),(6,'Spider Man','01:40:00','En tout cas mon Spider Man préféré.','spiderman.jpg',0),(7,'Troie','02:49:00','Troie est un film américain réalisé par Wolfgang Petersen et sorti en 2004. Il s\'agit d\'une adaptation libre et romancée des poèmes épiques du cycle troyen, singulièrement de l\'Iliade d\'Homère.','troie.jpg',0),(8,'Dragon Ball Z L\'Attaque du Dragon','02:08:00','Un des seuls OAV Dragon Ball regardé entièrement.','Dragon-Ball-Z-movie-attaque_du_dragon.jpg',0),(9,'Equilibrium','02:12:00','Equilibrium is a 2002 American science fiction film written and directed by Kurt Wimmer, and starring Christian Bale, Emily Watson, and Taye Diggs.','equilibrium.jpg',0);
 /*!40000 ALTER TABLE `film` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-14  0:29:39
+-- Dump completed on 2024-11-15  9:17:31

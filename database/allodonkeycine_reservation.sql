@@ -37,7 +37,6 @@ CREATE TABLE `reservation` (
 --
 -- Dumping data for table `reservation`
 --
--- ORDER BY:  `idreservation`
 
 LOCK TABLES `reservation` WRITE;
 /*!40000 ALTER TABLE `reservation` DISABLE KEYS */;
@@ -53,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-14  0:29:39
+-- Dump completed on 2024-11-15  9:17:32
